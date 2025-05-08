@@ -1,0 +1,1 @@
+Purpose made discord bot for VinylCord
