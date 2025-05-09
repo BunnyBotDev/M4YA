@@ -1,0 +1,10 @@
+main:
+  log_path: logs
+  bot_token: token_here
+  guild_id: numbers_here
+status:
+  status_url: false
+  status:
+  - Hi!
+  - Some other status!
+  - Now 20% Cooler!

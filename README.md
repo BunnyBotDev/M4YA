@@ -1,1 +1,1 @@
-Purpose made discord bot for VinylCord
+## Purpose made discord bot for VinylCord
