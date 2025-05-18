@@ -6,7 +6,7 @@ from ..utils import derpibooru
 
 
 @apc.command(name="pony", description="posts a specific pony by derpibooru id.")
-async def _pony(interaction: discord.Interaction, image_id:Optional[int]=3601724):
+async def _pony(interaction: discord.Interaction, image_id:Optional[int]=0):
     embed, is_safe = await derpibooru.id_to_embed(image_id)
 
     ## NSFW check

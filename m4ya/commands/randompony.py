@@ -4,7 +4,7 @@ from discord import app_commands as apc
 from ..utils import derpibooru
 
 
-@apc.command(name="randompony", description="fetches a random pony on derpibooru, optionally with a search.")
+@apc.command(name="pony", description="fetches a random pony on derpibooru, optionally with a search.")
 @apc.describe(tags="a list of comma separated tags as on derpibooru ex: `vinyl scratch,octavia melody`")
 async def _randompony(interaction: discord.Interaction, tags: str=""):
     report_channel = interaction.client.config['pony']['report_channel']

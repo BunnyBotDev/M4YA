@@ -23,7 +23,7 @@ except FileNotFoundError as e:
 
 
 class Bot(commands.bot.Bot):
-    VERSION = "dev-0"
+    VERSION = "1.0"
     def __init__(self, settings, *args, **kwargs):
         self.logger = logging.getLogger('M4YA')
         self.config = settings
