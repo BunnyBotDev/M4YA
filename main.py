@@ -10,8 +10,8 @@ from discord.ext import commands
 
 
 CONFIG_PATH = Path("config.yaml")
-COMMANDS_PATH = Path("commands")
-LOOPS_PATH = Path("loops")
+COMMANDS_PATH = Path("m4ya/commands")
+LOOPS_PATH = Path("m4ya/loops")
 
 
 try:
@@ -42,16 +42,16 @@ class Bot(commands.bot.Bot):
         await self.tree.sync(guild=self.developmentGuild)
 
     async def load_commands(self):
-        for i in COMMANDS_PATH.glob("*.py"):
+        for i in COMMANDS_PATH.glob("[!_]*.py"):
             await self.load_extension(i.as_posix()[:-3].replace('/', '.'))
 
     async def load_loops(self):
-        for i in LOOPS_PATH.glob("*.py"):
+        for i in LOOPS_PATH.glob("[!_]*.py"):
             await self.load_extension(i.as_posix()[:-3].replace('/', '.'))
 
 
 intents = discord.Intents.all()
-client = Bot(config, "M4YA- ", intents=intents)
+client = Bot(config, "M4YA- $", intents=intents) #not actually using the default bot commands... this prefix should be fine.
 
 @client.event
 async def on_ready():

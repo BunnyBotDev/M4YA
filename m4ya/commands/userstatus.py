@@ -2,8 +2,8 @@ import discord
 from discord import app_commands as apc
 
 
-@apc.command()
-async def userstatus(interaction: discord.Interaction, member: discord.Member):
+@apc.command(name="userstatus", description="Sends the Users status")
+async def userstatus(interaction: discord.Interaction, member: discord.Member,  ephemeral:bool=True):
     member = interaction.guild.get_member(member.id)
 
         # Fetch user status
@@ -31,7 +31,10 @@ async def userstatus(interaction: discord.Interaction, member: discord.Member):
             e.set_image(url=spotify.album_cover_url)
             break
 
-    await interaction.response.send_message(embed=e, ephemeral=False)
+    await interaction.response.send_message(embed=e, ephemeral=ephemeral)
 
 async def setup(bot: discord.Client):
     bot.tree.add_command(userstatus)
+
+async def teardown(bot: discord.Client):
+    bot.tree.remove_command(userstatus)

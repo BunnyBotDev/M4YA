@@ -1,10 +1,19 @@
 main:
   log_path: logs
   bot_token: token_here
-  guild_id: numbers_here
+  guild_id: numbers_here #guild id to submit the commands to
 status:
-  status_url: false
-  status:
+  status_url: false #false disabled, otherwise fetch a list of statuses from a separate yaml file. 
+  status: #list of statuses
   - Hi!
   - Some other status!
   - Now 20% Cooler!
+pony:
+  nsfw_filter: 56027 #derpibooru filter ids, integer, default is the staff filters 'everything' and 'default'
+  sfw_filter: 100073
+  follow_query: safe #search query to follow.
+  follow_channel: channel_id_to_post # integer channel id.
+  report_channel_id: channel_id_reports #channel id to report problems to, most likely peeople trying to bypass filters.
+autorole:
+  guild: guild_id #integer guild id
+  role: role_id #integer role id

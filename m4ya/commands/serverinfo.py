@@ -2,7 +2,7 @@ import discord
 from discord import app_commands as apc
 
 
-@apc.command()
+@apc.command(name="serverinfo", description="Sends information about the Server")
 async def serverinfo(interaction: discord.Interaction):
     e = discord.Embed(title=interaction.guild.name+"'s info", description="here is what I could find.")
     e.add_field(name="Guild Name", value=interaction.guild.name)
@@ -13,3 +13,6 @@ async def serverinfo(interaction: discord.Interaction):
 
 async def setup(bot: discord.Client):
     bot.tree.add_command(serverinfo)
+
+async def teardown(bot: discord.Client):
+    bot.tree.remove_command(serverinfo)
