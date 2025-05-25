@@ -10,14 +10,14 @@ async def id_to_embed(image_id) -> (discord.Embed, bool):
     returns a tuple following the following format: (embed, is_safe)
     """
     async with aiohttp.ClientSession() as session:
-        async with session.get('http://derpibooru.org/api/v1/json/images/%d' % image_id) as resp:
+        async with session.get(f'http://derpibooru.org/api/v1/json/images/{image_id}') as resp:
             json = await resp.json()
             image = json['image']
     
     return await image_data_to_embed(image), "safe" in image['tags']
 
 async def image_data_to_embed(image):
-    embed = discord.Embed(title="#%d" % image['id'], url="https://derpibooru.org/images/%d" % image['id'])
+    embed = discord.Embed(title=f"#{image['id']}", url=f"https://derpibooru.org/images/{image['id']}")
     embed.set_image(url=image['representations']['medium'])
     embed.colour = discord.Colour.random(seed=image['id'])
     try:
